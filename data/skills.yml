@@ -1,0 +1,4 @@
+- Framework Electron
+- Intégration asynchrone dans les pages web
+- Génération de sites statiques (Hugo, 11ty)
+- Traitement documentaire des données (JSON, XML → PDF, page web)

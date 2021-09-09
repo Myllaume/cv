@@ -1,0 +1,25 @@
+-
+  titre: Cosma
+  description: >
+    Application Electron. Interface publiable de visualisation
+    de graphe documentaire.
+  lien: https://cosma.graphlab.fr/
+  organisation: Laboratoire MICA
+  lieu: Bordeaux
+  date: 2021
+-
+  titre: Opensphère
+  description: >
+    Cartographie relationnelle intéractive.
+  lien: https://hyperotlet.huma-num.fr/otletosphere/
+  organisation: Laboratoire MICA
+  lieu: Bordeaux
+  date: 2020
+-
+  titre: Opendata-Board
+  description: >
+    Tableau dynamique de statistiques généré à partir d’un corpus de fichiers JSON.
+  lien: https://dev.myllaume.fr/opendata_board/
+  organisation: IUT Bordeaux Montaigne
+  lieu: Bordeaux
+  date: 2019

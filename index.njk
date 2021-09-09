@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/style.css">
+
+    <script>
+        window.PagedConfig = { auto: false };
+
+        async function preview () {
+            await window.PagedPolyfill.preview();
+            window.print();
+        }
+
+        window.addEventListener("load", function () { preview() });
+    </script>
+
+    <title>CV de développeur JavaScript de Guillaume Brioudes</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        
+        <h1>{{ self.prenom }} {{ self.nom }}</h1>
+
+        <section class="metas">
+            <ul>
+                <li>
+                    <a href="{{ contact.site }}" title="Site web">
+                        {{ contact.site | replace(r/(\w*https\w*)|[\/]$|[:]|(\/\/)/g, '') }}
+                    </a>
+                </li>
+
+                <li>
+                    <a href="mailto:{{ contact.mail }}" title="Contact par mail">
+                        {{ contact.mail }}
+                    </a>
+                </li>
+
+                <li>
+                    <a href="tel:{{ contact.tel }}" title="Contact par téléphone">
+                        {{ contact.tel }}
+                    </a>
+                </li>
+
+                <li>
+                    {{ contact.adresse }}
+                </li>
+            </ul>
+        </section>
+
+        <section class="work">
+            <h2>{{ self.métier }}</h2>
+        </section>
+    
+        <section class="cursus">
+            <h3>Cursus</h3>
+        
+            <ul>
+                {%- for cursus in cursus -%}
+                <li>
+                    <span class="date">{{ cursus.début + " -" if cursus.début }} {{ cursus.fin }}</span>
+                    <span>
+                        {{ cursus.niveau }}
+                        {{ cursus.titre }}{{ ", spécialité " + cursus.spécialité if cursus.spécialité }}
+                    </span>
+                </li>
+                {%- endfor -%}
+            </ul>
+        </section>
+
+        <section class="emplois">
+            <h3>Emplois</h3>
+        
+            <ul>
+                {%- for emploi in employments -%}
+                <li>
+                    <span class="date">
+                        {% if emploi.début and emploi.fin %}
+                        {{ emploi.début }} - {{ emploi.fin }}
+                        {% elif emploi.début %}
+                        depuis {{ emploi.début }}
+                        {% else %}
+                        {{ emploi.fin }}
+                        {% endif %}
+                    </span>
+                    <span>
+                        {{ emploi.organisation }}
+                    </span>
+                    <span>
+                        {{ emploi.activité }}
+                    </span>
+                </li>
+                {%- endfor -%}
+            </ul>
+        </section>
+
+        <section class="projets">
+            <h3>Projets</h3>
+        
+            <ul>
+                {%- for projet in projects -%}
+                <li>
+                    <span class="date">{{ projet.date }}</span>
+                    <span>
+                        {{ projet.titre }}
+                        ({{ projet.organisation }})
+                        <a href="{{ projet.lien }}">
+                            {{ projet.lien | replace(r/(\w*https\w*)|[\/]$|[:]|(\/\/)/g, '') }}
+                        </a>
+                    </span>
+                    <span>
+                        {{ projet.description }}
+                    </span>
+                </li>
+                {%- endfor -%}
+            </ul>
+        </section>
+    
+        <section class="competences">
+            <h3>Compétences</h3>
+        
+            <ul>
+                {%- for compétence in skills -%}
+                <li>
+                    {{ compétence }}
+                </li>
+                {%- endfor -%}
+            </ul>
+        </section>
+
+        <section class="benevolat">
+            <h3>Bénévolat</h3>
+        
+            <ul>
+                {%- for bénévolat in volonteering -%}
+                <li>
+                    <span class="date">
+                        {% if bénévolat.début and bénévolat.fin %}
+                        {{ bénévolat.début }} - {{ bénévolat.fin }}
+                        {% elif bénévolat.début %}
+                        depuis {{ bénévolat.début }}
+                        {% else %}
+                        {{ bénévolat.fin }}
+                        {% endif %}
+                    </span>
+                    <span>
+                        {{ bénévolat.titre }}
+                    </span>
+                    <span>
+                        {{ bénévolat.organisation }}
+                    </span>
+                </li>
+                {%- endfor -%}
+            </ul>
+        </section>
+
+    </div>
+
+    <script src="assets/pagedjs.min.js"></script>
+    
+</body>
+
+</html>
