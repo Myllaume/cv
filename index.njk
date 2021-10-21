@@ -5,18 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="assets/style.css">
-
-    <script>
-        window.PagedConfig = { auto: false };
-
-        async function preview () {
-            await window.PagedPolyfill.preview();
-            window.print();
-        }
-
-        window.addEventListener("load", function () { preview() });
-    </script>
+    <link rel="stylesheet" href="/assets/style.css">
 
     <title>CV de développeur JavaScript de Guillaume Brioudes</title>
 </head>
@@ -25,7 +14,6 @@
 
     <div class="wrapper">
 
-        
         <h1>{{ self.prenom }} {{ self.nom }}</h1>
 
         <section class="metas">
@@ -39,12 +27,6 @@
                 <li>
                     <a href="mailto:{{ contact.mail }}" title="Contact par mail">
                         {{ contact.mail }}
-                    </a>
-                </li>
-
-                <li>
-                    <a href="tel:{{ contact.tel }}" title="Contact par téléphone">
-                        {{ contact.tel }}
                     </a>
                 </li>
 

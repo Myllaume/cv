@@ -67,6 +67,7 @@ header {
 .work {
     grid-area: t;
     padding: 2rem 0;
+    color: var(--color-accent);
 }
 
 .work h2 {
