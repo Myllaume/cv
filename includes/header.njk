@@ -1,0 +1,31 @@
+<h1>{{ self.prenom }} {{ self.nom }}</h1>
+
+<section class="metas">
+    <ul>
+        <li>
+            <a href="{{ contact.site }}" title="Site web">
+                {{ contact.site | replace(r/(\w*https\w*)|[\/]$|[:]|(\/\/)/g, '') }}
+            </a>
+        </li>
+
+        <li>
+            <a href="mailto:{{ contact.mail }}" title="Contact par mail">
+                {{ contact.mail }}
+            </a>
+        </li>
+
+        <li>
+            <a href="tel:{{ contact.tel }}" title="Contact par téléphone">
+                {{ contact.tel }}
+            </a>
+        </li>
+
+        <li>
+            {{ contact.adresse }}
+        </li>
+    </ul>
+</section>
+
+<section class="work">
+    <h2>{{ self.métier }}</h2>
+</section>
